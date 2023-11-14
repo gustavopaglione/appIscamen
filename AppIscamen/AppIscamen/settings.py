@@ -56,7 +56,7 @@ ROOT_URLCONF = 'AppIscamen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/appIscamen/appIscamen/AppIscamen/App/plantillas'],
+        'DIRS': ['C:/Users/USER/Downloads/appIscamen-master/appIscamen/AppIscamen/App/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
