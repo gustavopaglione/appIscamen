@@ -56,7 +56,7 @@ ROOT_URLCONF = 'AppIscamen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:/appIscamen-master/AppIscamen/App/plantillas'],
+        'DIRS': ['C:/appIscamen/appIscamen/AppIscamen/App/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'App/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app', 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field

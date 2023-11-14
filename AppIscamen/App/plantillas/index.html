@@ -1,33 +1,32 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
-        
-        <link rel="stylesheet" href="{% static 'main.css' %}">
-        <title>Document</title>
-        
-    </head>
-    <body>
-        <div class="v1_14">
-            <div class="v1_15">
-
-            </div>
-            <span class="v1_16">Creado por Alvear Conecta- Mendoza Futura, General Alvear, Mendoza</span>
-            <div class="v1_17">
-                <div class="v1_18">
-
-                </div>
-                <span class="v1_19">Iniciar sesión</span>
-            </div>
-            <span class="v1_20">Administra con eficiencia</span>
-            <div class="v1_21">
-
-            </div>
-            <div class="name">
-
-            </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>appiscamen</title>
+</head>
+<body>
+    <div class="v1_14">
+        <div class="v1_15">
+            <!-- Ajusta la altura y el ancho de la imagen del logo -->
+            <img src="{% static 'imagenes/v1_15.png' %}" alt="Imagen 1" class="logo">
         </div>
-    </body>
+        <span class="v1_16">Creado por Alvear Conecta- Mendoza Futura, General Alvear, Mendoza</span>
+        <div class="v1_17">
+            <div class="v1_18"></div>
+            <!-- Ajusta el botón para que sea más visible -->
+            <button class="v1_19">Iniciar sesión</button>
+        </div>
+        <span class="v1_20">Administra con eficiencia</span>
+        <div class="v1_21">
+            <!-- Ajusta la altura y el ancho de la imagen de fondo -->
+            <img src="{% static 'imagenes/v1_21.png' %}" alt="Imagen 2" class="background">
+        </div>
+        <div class="name"></div>
+    </div>
+</body>
 </html>
