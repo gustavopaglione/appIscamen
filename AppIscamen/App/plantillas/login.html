@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Inicio de sesión</title>
     <link rel="stylesheet" href="{% static 'main.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
@@ -13,19 +13,21 @@
 <body>
     <div class="flex-center">
         <div id="fondo">
-            <div id="titulo" >
-                <h1>Administra con eficiencia</h1> 
-            </div>
 
-            <div id="button" class="flex-center">
-                <a href="{% url 'login' %}" class="button">Iniciar sesión</a>
-            </div>
+        <h1 id="titulologin">¡Bienvenido a ISCAPP!</h1>
+        
+        <div class="form" >
+            <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="buttonform" type="submit">Iniciar sesión</button>
+            </form>
 
-            <div id="socalo" >
-                <h5>Creado por Alvear Conecta- Mendoza Futura, General Alvear, Mendoza</h5>
-            </div>
+        </div>
+        <div>
+            <h5 id="socalologin"><a href="URL_DE_RECUPERACION">¿Olvidaste tu contraseña?</a></h5>
+        </div>
         </div>
         
     </div>
 </body>
-</html>

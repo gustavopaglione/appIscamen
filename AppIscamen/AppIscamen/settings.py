@@ -56,7 +56,7 @@ ROOT_URLCONF = 'AppIscamen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/User/Documents/Gustavo/Programacion/appIscamen/appIscamen/AppIscamen/App/plantillas'],
+        'DIRS': ['C:/appIscamen/appIscamen/AppIscamen/App/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +124,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app', 'static')]
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
