@@ -1,80 +1,27 @@
-/* main.css */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-size: 14px;
-    margin: 0;
-}
-
-.v1_14 {
-    width: 100%;
-    min-height: 100vh;
-    background-color: rgba(255, 255, 255, 1);
-    position: relative;
-}
-
-.logo {
-    width: 20%; /* Ajusta el ancho de la imagen del logo al 100% del contenedor */
-    height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
-    z-index: 1;
-}
-
-.v1_15 {
-    background-size: cover;
-}
-
-.v1_16 {
-    width: 100%;
-    color: rgb(255, 255, 255);
-    position: absolute;
-    top: 80%; /* Ajusta la posición vertical del texto */
-    font-family: Nunito;
-    font-weight: SemiBold;
-    font-size: 1.5vw; /* Utiliza unidades de viewport width para el tamaño de la fuente */
-    text-align: center; /* Centra el texto */
-}
-
-.v1_17 {
-    width: 100%;
-    height: 10vh; /* Ajusta la altura del contenedor del botón */
-    background-color: rgba(163, 6, 6, 1);
-    position: absolute;
-    bottom: 0; /* Alinea el contenedor del botón en la parte inferior */
+.flex-center{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.v1_19 {
+#fondo{
+    width: 1920px;
+    height: 1000px;
+    background-image: url(imagenes/Bienvenido.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.button {
     color: rgba(255, 255, 255, 1);
     background-color: red;
-    font-family: Nunito;
+    font-family: 'Segoe UI';
     font-weight: SemiBold;
     font-size: 1.5vw;
-    padding: 10px 20px;
+    padding: 12px 30px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-}
-
-.v1_20 {
-    width: 100%;
-    color: rgba(255, 255, 255, 1);
-    position: absolute;
-    top: 40%; /* Ajusta la posición vertical del texto */
-    font-family: Quicksand;
-    font-weight: Bold;
-    font-size: 2vw; /* Utiliza unidades de viewport width para el tamaño de la fuente */
-    text-align: center; /* Centra el texto */
-}
-
-.background {
-}
-
-.name {
-    color: #fff;
+    position: absolute;top: 100%;
 }
