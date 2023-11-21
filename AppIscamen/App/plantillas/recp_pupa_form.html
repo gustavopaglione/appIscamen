@@ -13,11 +13,14 @@
 <body>
     <div class="flex-center">
         <div id="fondo">
-            <button class="buttonform" type="submit">Iniciar sesión</button>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
+            <button class="buttonmenu" type="submit">RECP PUPA</button>
+            <button class="buttonmenuna" type="submit">PRODUCCIÓN</button>
+            <button class="buttonmenuna" type="submit">LIBERACIÓN</button>
+            <button class="buttonmenuna" type="submit">INFORMES</button>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                  <button class="buttonform" type="submit">Guardar</button>
+                </form>
 </body>
 </html>
