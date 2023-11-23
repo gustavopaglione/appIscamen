@@ -42,8 +42,8 @@ def produccion_form(request):
             return redirect('produccion_success')  # Puedes cambiar 'produccion_success' al nombre de tu URL de éxito
     else:
         form = ProduccionForm()
-    print(form) 
-    return render(request, 'produccion.html', {'form': form})
+    
+    return render(request, 'produccion.html', {'produccion_form': form})
 
 def produccion_success(request):
     return render(request, 'produccion_success.html')
@@ -57,7 +57,7 @@ def liberacion_form(request):
     else:
         form = LiberacionForm()
 
-    return render(request, 'liberacion.html', {'form': form})
+    return render(request, 'liberacion.html', {'liberacion_form': form})
 
 def liberacion_success(request):
     return render(request, 'liberacion_success.html')
