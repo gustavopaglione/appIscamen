@@ -20,28 +20,40 @@
                 <a class="menuinactivo" href="#">PRODUCCIÓN</a>
                 <a class="menuinactivo1" href="#">LIBERACIÓN</a>
                 <a class="menuinactivo2" href="#">INFORMES</a>
-              </div>
-              <div class="formpupa">
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <label for="{{ recp_pupa_form.fecha.id_for_label }}">Fecha:</label>
-                        {{ recp_pupa_form.fecha }}
-                        <label for="{{ recp_pupa_form.horarios.id_for_label }}">Horarios:</label>
-                        {{ recp_pupa_form.horarios }}
-                    </div>
-                    <div class="input-group">
-                        <label for="{{ recp_pupa_form.temperatura.id_for_label }}">Temperatura:</label>
-                        {{ recp_pupa_form.temperatura }}
-                        <label for="{{ recp_pupa_form.litros.id_for_label }}">Litros:</label>
-                        {{ recp_pupa_form.litros }}
-                    </div>
-                    <div class="input-lotes">
-                        <label for="{{ recp_pupa_form.lotes.id_for_label }}">Lotes:</label>
-                        {{ recp_pupa_form.lotes }}
-                    </div>
-                    <button class="buttonform" type="submit">Finalizar</button>
-                </form>
             </div>
+              <div class="formpupa">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <label for="{{ recp_pupa_form.fecha.id_for_label }}">Fecha:</label>
+                            {{ recp_pupa_form.fecha }}
+                            <label for="{{ recp_pupa_form.horarios.id_for_label }}">Horarios:</label>
+                            {{ recp_pupa_form.horarios }}
+                        </div>
+                        <div class="input-group">
+                            <label for="{{ recp_pupa_form.temperatura.id_for_label }}">Temperatura:</label>
+                            {{ recp_pupa_form.temperatura }}
+                            <label for="{{ recp_pupa_form.litros.id_for_label }}">Litros:</label>
+                            {{ recp_pupa_form.litros }}
+                        </div>
+                        <div class="input-lotes">
+                            <label for="{{ recp_pupa_form.lotes.id_for_label }}">Lotes:</label>
+                            {{ recp_pupa_form.lotes }}
+                        </div>
+                        <button class="buttonformpupa" type="submit">Finalizar</button>
+                    </form>
+                    <a href="{% url 'login' %}" class="buttonsalir">Salir</a>
+                </div>    
+        </div>
+    </div>
+    <script>
+        function confirmExit() {
+            var confirmation = confirm("¿Estás seguro de salir?");
+            if (confirmation) {
+                // Puedes redirigir a una página de salida o realizar otras acciones aquí.
+                alert("Saliendo...");
+            }
+        }
+    </script>
 </body>
 </html>

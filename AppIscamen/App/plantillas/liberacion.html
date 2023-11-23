@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <title>Formulario LIBERACIÓN</title>
+    {{ liberacion_form.media }}
+</head>
+<body>
+    <div class="flex-center">
+        <div id="fondo">
+            <div>
+                <a class="menuinactivolib" href="#">RECP PUPA</a>
+                <a class="menuinactivo1lib" href="#">PRODUCCIÓN</a>
+                <a class="menuactivolib" href="#">LIBERACIÓN</a>
+                <a class="menuinactivo2lib" href="#">INFORMES</a>
+            </div>
+       
+        <div class="formlib">
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="{{ liberacion_form.fecha_horarios.id_for_label }}">Fecha y Horarios:</label>
+                    {{ liberacion_form.fecha_horarios }}
+                    <label for="{{ liberacion_form.sector.id_for_label }}">Sector:</label>
+                    {{ liberacion_form.sector }}
+                </div>
+                <div class="input-group">
+                    <label for="{{ liberacion_form.temp_humedad_entrega_cajas.id_for_label }}">Temp. y Hum. Entrega Cajas:</label>
+                    {{ liberacion_form.temp_humedad_entrega_cajas }}
+                    <label for="{{ liberacion_form.temp_humedad_ingreso_sector_liberacion.id_for_label }}">Temp. y Hum. Ingreso Sector Liberación:</label>
+                    {{ liberacion_form.temp_humedad_ingreso_sector_liberacion }}
+                </div>
+                <div class="input-group">
+                    <label for="{{ liberacion_form.millones_liberados.id_for_label }}">Millones Liberados:</label>
+                    {{ liberacion_form.millones_liberados }}
+                </div>
+                <button class="buttonformprod" type="submit">Finalizar</button>
+            </form>
+            <a href="{% url 'login' %}" class="buttonsalir">Salir</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
