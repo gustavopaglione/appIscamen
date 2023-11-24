@@ -307,6 +307,83 @@
 .menuinactivo2lib:hover {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);  /* Cambiamos la sombra cuando el cursor está sobre el botón */
 }
+.menuactivoinf{
+    color: rgb(0, 0, 0);
+    background-color: rgb(248, 181, 36);
+    font-family: Nunito;
+    font-weight: SemiBold;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 65%;
+    left: 61%;
+    transition: box-shadow 0.3s ease;  /* Agregamos una transición a la propiedad box-shadow */
+    z-index: 5
+}
+.menuactivoinf:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);  /* Cambiamos la sombra cuando el cursor está sobre el botón */
+}
+
+.menuinactivoinf {
+    color: rgb(0, 0, 0);
+    background-color: rgb(216, 216, 216);
+    font-family: Nunito;
+    font-weight: SemiBold;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 65%;
+    left: 29%;
+    transition: box-shadow 0.3s ease;  /* Agregamos una transición a la propiedad box-shadow */
+    z-index: 3
+}
+.menuinactivoinf:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);  /* Cambiamos la sombra cuando el cursor está sobre el botón */
+}
+.menuinactivo1inf {
+    color: rgb(0, 0, 0);
+    background-color: rgb(216, 216, 216);
+    font-family: Nunito;
+    font-weight: SemiBold;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 65%;
+    left: 39%;
+    transition: box-shadow 0.3s ease;  /* Agregamos una transición a la propiedad box-shadow */
+    z-index: 4
+}
+.menuinactivo1inf:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);  /* Cambiamos la sombra cuando el cursor está sobre el botón */
+}
+.menuinactivo2inf {
+    color: rgb(0, 0, 0);
+    background-color: rgb(216, 216, 216);
+    font-family: Nunito;
+    font-weight: SemiBold;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 65%;
+    left: 51%;
+    transition: box-shadow 0.3s ease;  /* Agregamos una transición a la propiedad box-shadow */
+    z-index: 2
+}
+.menuinactivo2inf:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);  /* Cambiamos la sombra cuando el cursor está sobre el botón */
+}
 .form {
     max-width: 1000px;
     margin-top: -60px;

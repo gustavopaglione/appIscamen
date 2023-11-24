@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+
+    <title>Formulario INFORMES</title>
+
+</head>
+<body>
+    <div class="flex-center">
+        <div id="fondo">
+            <div>
+                <a class="menuinactivoinf" href="{% url 'recp_pupa' %}">RECP PUPA</a>
+                <a class="menuinactivo1inf" href="{% url 'produccion' %}">PRODUCCIÓN</a>
+                <a class="menuinactivo2inf" href="{% url 'liberacion' %}">LIBERACIÓN</a>
+                <a class="menuactivoinf" href="{% url 'informes' %}">INFORMES</a>
+            </div>
+       
+            <h1 id="titulo">INFORMES</h1>
+
+            <!-- Aquí puedes agregar el contenido específico de la página de informes -->
+        
+            <h2>Tabla de Resultados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Sector</th>
+                        <th>Otros Campos...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for resultado in resultados %}
+                        <tr>
+                            <td>{{ resultado.fecha_horarios }}</td>
+                            <td>{{ resultado.sector }}</td>
+                            <td>Otros Datos...</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+            <!-- Puedes agregar gráficos u otros elementos visuales aquí -->
+        
+            <!-- Puedes incluir scripts específicos de esta página aquí, si es necesario -->
+        
+            
+            
+    </div>
+</div>
+</body>
+</html>
