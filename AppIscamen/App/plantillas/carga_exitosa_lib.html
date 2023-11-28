@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <title>Carga Exitosa</title>
+
+</head>
+<body>
+    <div class="flex-center">
+        <div id="fondo">
+            <div>
+                <a class="menuinactivolib" href="{% url 'recp_pupa' %}">RECP PUPA</a>
+                <a class="menuinactivo1lib" href="{% url 'produccion' %}">PRODUCCIÓN</a>
+                <a class="menuactivolib" href="{% url 'liberacion' %}">LIBERACIÓN</a>
+                <a class="menuinactivo2lib" href="{% url 'informes' %}">INFORMES</a>
+            </div>
+                <div class="forminfo">
+    <h1>¡Datos de Liberación Guardados Exitosamente!</h1>
+    <p>Gracias por ingresar la información de Recepción de Pupa.</p>
+    <a href="{% url 'liberacion' %}" class="buttonexito">Realizar Otra Carga</a>
+    <a href="{% url 'login' %}" class="buttonsalir">Salir</a>
+    </div>
+</div>
+</div>
+</body>
+</html>

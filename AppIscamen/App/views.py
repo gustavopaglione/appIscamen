@@ -24,11 +24,14 @@ def recp_pupa_form(request):
         form = RECP_PUPAForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')  # Cambia 'index' a la vista que desees después de guardar el formulario
+            return redirect('pupa_success')
     else:
         form = RECP_PUPAForm()
 
     return render(request, 'recp_pupa_form.html', {'recp_pupa_form': form})
+
+def pupa_success(request):
+    return render(request, 'carga_exitosa_pupa.html')
 
 def salir(request):
     # Aquí puedes agregar lógica adicional si es necesario
@@ -46,7 +49,7 @@ def produccion_form(request):
     return render(request, 'produccion.html', {'produccion_form': form})
 
 def produccion_success(request):
-    return render(request, 'produccion_success.html')
+    return render(request, 'carga_exitosa_prod.html')
 
 def liberacion_form(request):
     if request.method == 'POST':
@@ -59,8 +62,12 @@ def liberacion_form(request):
 
     return render(request, 'liberacion.html', {'liberacion_form': form})
 
+
+
+
+
 def liberacion_success(request):
-    return render(request, 'liberacion_success.html')
+    return render(request, 'carga_exitosa_lib.html')
 
 def recp_pupa(request):
     # Lógica para la vista de RECP PUPA
@@ -80,13 +87,35 @@ def informes(request):
 
 
 
-def informes(request):
-    recp_pupa_results = RECP_PUPA.objects.all()
-    produccion_results = Produccion.objects.all()
-    liberacion_results = Liberacion.objects.all()
 
-    return render(request, 'informes.html', {
-        'recp_pupa_results': recp_pupa_results,
-        'produccion_results': produccion_results,
-        'liberacion_results': liberacion_results,
-    })
+
+from .forms import FiltroInformeForm
+
+def filtrar_informes(request):
+    if request.method == 'POST':
+        form = FiltroInformeForm(request.POST)
+        if form.is_valid():
+            fecha_inicio = form.cleaned_data['fecha_inicio']
+            fecha_fin = form.cleaned_data['fecha_fin']
+            categoria = form.cleaned_data['categoria']
+
+            # Filtra los resultados según los parámetros
+            if categoria == 'RECP_PUPA':
+                resultados = RECP_PUPA.objects.filter(
+                    fecha__range=(fecha_inicio, fecha_fin),
+                )
+            elif categoria == 'Produccion':
+                resultados = Produccion.objects.filter(
+                    fecha__range=(fecha_inicio, fecha_fin),
+                )
+            elif categoria == 'Liberacion':
+                resultados = Liberacion.objects.filter(
+                    fecha_horarios__range=(fecha_inicio, fecha_fin),
+                )
+
+            return render(request, 'informe.html', {'resultados': resultados, 'form': form})
+    else:
+        form = FiltroInformeForm()
+
+    return render(request, 'informe.html', {'form': form})
+

@@ -29,3 +29,16 @@ class LiberacionForm(forms.ModelForm):
         widgets = {
             'fecha_horarios': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }
+
+
+class FiltroInformeForm(forms.Form):
+    PERIODO_CHOICES = (
+        ('hoy', 'Hoy'),
+        ('semana', 'Esta semana'),
+        ('mes', 'Este mes'),
+        # Agrega más opciones según tus necesidades
+    )
+
+    fecha_inicio = forms.DateField(label='Fecha de inicio', required=False, widget=forms.TextInput(attrs={'type': 'date'}))
+    fecha_fin = forms.DateField(label='Fecha de fin', required=False, widget=forms.TextInput(attrs={'type': 'date'}))
+    categoria = forms.ChoiceField(label='Categoría', choices=[('RECP_PUPA', 'RECP PUPA'), ('Produccion', 'Producción'), ('Liberacion', 'Liberación')])  # Ajusta según tus modelos

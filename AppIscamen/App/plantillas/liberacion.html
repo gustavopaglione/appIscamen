@@ -15,7 +15,7 @@
     <div class="flex-center">
         <div id="fondo">
             <div>
-                <a class="menuinactivolib" href="{% url 'recp_pupa' %}">RECP PUPA</a>
+                <a class="menuinactivolib" href="{% url 'recp_pupa_form' %}">RECP PUPA</a>
                 <a class="menuinactivo1lib" href="{% url 'produccion' %}">PRODUCCIÓN</a>
                 <a class="menuactivolib" href="{% url 'liberacion' %}">LIBERACIÓN</a>
                 <a class="menuinactivo2lib" href="{% url 'informes' %}">INFORMES</a>
@@ -40,7 +40,7 @@
                     <label for="{{ liberacion_form.millones_liberados.id_for_label }}">Millones Liberados:</label>
                     {{ liberacion_form.millones_liberados }}
                 </div>
-                <button class="buttonformprod" type="submit">Finalizar</button>
+                <button class="buttonformlib" type="submit">Finalizar</button>
             </form>
             <a href="{% url 'login' %}" class="buttonsalir">Salir</a>
         </div>

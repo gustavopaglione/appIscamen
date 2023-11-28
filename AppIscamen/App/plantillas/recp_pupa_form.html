@@ -16,13 +16,13 @@
         <div id="fondo">
 
             <div>
-                <a class="menuactivo" href="{% url 'recp_pupa' %}">RECP PUPA</a>
+                <a class="menuactivo" href="{% url 'recp_pupa_form' %}">RECP PUPA</a>
                 <a class="menuinactivo" href="{% url 'produccion' %}">PRODUCCIÓN</a>
                 <a class="menuinactivo1" href="{% url 'liberacion' %}">LIBERACIÓN</a>
                 <a class="menuinactivo2" href="{% url 'informes' %}">INFORMES</a>
             </div>
               <div class="formpupa">
-                    <form method="post">
+                        <form method="post">
                         {% csrf_token %}
                         <div class="input-group">
                             <label for="{{ recp_pupa_form.fecha.id_for_label }}">Fecha:</label>
@@ -46,14 +46,5 @@
                 </div>    
         </div>
     </div>
-    <script>
-        function confirmExit() {
-            var confirmation = confirm("¿Estás seguro de salir?");
-            if (confirmation) {
-                // Puedes redirigir a una página de salida o realizar otras acciones aquí.
-                alert("Saliendo...");
-            }
-        }
-    </script>
 </body>
 </html>

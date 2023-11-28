@@ -17,23 +17,46 @@
     <div class="flex-center">
         <div id="fondo">
             <div>
-                <a class="menuinactivoinf" href="{% url 'recp_pupa' %}">RECP PUPA</a>
+                <a class="menuinactivoinf" href="{% url 'recp_pupa_form' %}">RECP PUPA</a>
                 <a class="menuinactivo1inf" href="{% url 'produccion' %}">PRODUCCIÓN</a>
                 <a class="menuinactivo2inf" href="{% url 'liberacion' %}">LIBERACIÓN</a>
                 <a class="menuactivoinf" href="{% url 'informes' %}">INFORMES</a>
             </div>
-       
-            <h1 id="titulo">INFORMES</h1>
-
-            <!-- Aquí puedes agregar el contenido específico de la página de informes -->
+          
+                
         
+            
+            
+            <!-- Formulario de Filtros -->
+            <div class="forminfo">
+                <h1 id="titulo-filtro">Informe de Resultados</h1>
+            <form method="post" action="{% url 'filtrar_informes' %}">
+                {% csrf_token %}
+                <label for="fecha_inicio">Fecha de Inicio:</label>
+                <input type="date" name="fecha_inicio" required>
+        
+                <label for="fecha_fin">Fecha de Fin:</label>
+                <input type="date" name="fecha_fin" required>
+        
+                <label for="categoria">Categoría:</label>
+                <select name="categoria" required>
+                    <option value="recp_pupa">RECP PUPA</option>
+                    <option value="produccion">Producción</option>
+                    <option value="liberacion">Liberación</option>
+                </select>
+        
+                <button type="submit">Filtrar</button>
+            </form>
+        
+            <!-- Tabla de Resultados -->
+            
             <h2>Tabla de Resultados</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Fecha</th>
                         <th>Sector</th>
-                        <th>Otros Campos...</th>
+                        <!-- Agrega otras columnas según tus modelos -->
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +64,7 @@
                         <tr>
                             <td>{{ resultado.fecha_horarios }}</td>
                             <td>{{ resultado.sector }}</td>
-                            <td>Otros Datos...</td>
+                            <!-- Agrega otras celdas según tus modelos -->
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -51,8 +74,8 @@
         
             <!-- Puedes incluir scripts específicos de esta página aquí, si es necesario -->
         
-            
-            
+        
+        </div>    
     </div>
 </div>
 </body>
