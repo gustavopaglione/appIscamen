@@ -3,18 +3,24 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
 from .forms import RECP_PUPAForm, ProduccionForm,LiberacionForm
 from .models import RECP_PUPA, Produccion, Liberacion
+from django.contrib import messages
 
 def index(request):
     return render(request, "index.html")
+
 
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            # Puedes redirigir a otra página después del inicio de sesión exitoso
+            messages.success(request, 'Inicio de sesión exitoso.')
+            return redirect('recp_pupa_form')  # Reemplaza 'recp_pupa_form' con la URL correcta
+        else:
+            messages.error(request, 'Error al iniciar sesión. Verifica tu usuario y contraseña.')
     else:
         form = AuthenticationForm()
+
     return render(request, 'login.html', {'form': form})
 
 
@@ -24,7 +30,10 @@ def recp_pupa_form(request):
         form = RECP_PUPAForm(request.POST)
         if form.is_valid():
             form.save()
+            print("Formulario guardado exitosamente")
             return redirect('pupa_success')
+        else:
+            print("Formulario no válido. Errores:", form.errors)
     else:
         form = RECP_PUPAForm()
 

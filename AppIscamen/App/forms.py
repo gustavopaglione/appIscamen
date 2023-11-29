@@ -8,7 +8,9 @@ class RECP_PUPAForm(forms.ModelForm):
         fields = ['fecha', 'horarios', 'temperatura', 'litros', 'lotes']
         widgets = {
             'fecha': forms.DateInput(attrs={'type': 'date'}),
+            'horarios': forms.TimeInput(format='%H:%M'),
         }
+        input_formats = ['%H:%M']
 
 
 class ProduccionForm(forms.ModelForm):
