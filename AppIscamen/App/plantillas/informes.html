@@ -28,53 +28,88 @@
             
             
             <!-- Formulario de Filtros -->
-            <div class="forminfo">
-                <h1 id="titulo-filtro">Informe de Resultados</h1>
-            <form method="post" action="{% url 'filtrar_informes' %}">
-                {% csrf_token %}
-                <label for="fecha_inicio">Fecha de Inicio:</label>
-                <input type="date" name="fecha_inicio" required>
-        
-                <label for="fecha_fin">Fecha de Fin:</label>
-                <input type="date" name="fecha_fin" required>
-        
-                <label for="categoria">Categoría:</label>
-                <select name="categoria" required>
-                    <option value="recp_pupa">RECP PUPA</option>
-                    <option value="produccion">Producción</option>
-                    <option value="liberacion">Liberación</option>
-                </select>
-        
-                <button type="submit">Filtrar</button>
-            </form>
-        
-            <!-- Tabla de Resultados -->
-            
-            <h2>Tabla de Resultados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Sector</th>
-                        <!-- Agrega otras columnas según tus modelos -->
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for resultado in resultados %}
-                        <tr>
-                            <td>{{ resultado.fecha_horarios }}</td>
-                            <td>{{ resultado.sector }}</td>
-                            <!-- Agrega otras celdas según tus modelos -->
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        
-            <!-- Puedes agregar gráficos u otros elementos visuales aquí -->
-        
-            <!-- Puedes incluir scripts específicos de esta página aquí, si es necesario -->
-        
-        
+            <div style="max-width: 900px; margin-top: 385px; margin-left: 200px; width: 100%; padding: 20px; background-color: white; border: 1px solid #ddd; border-radius: 37px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); height: 600px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; z-index: 1;">
+               
+         
+ <!-- Tabla de Resultados RECP PUPA -->
+<h2 style="font-family:Quicksand;">Tabla de Resultados RECP PUPA</h2>
+<table style="border-collapse: collapse; width: 100%; font-family:Quicksand; font-size:12px; position:center;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">Fecha</th>
+            <th style="border: 1px solid black;">Horarios</th>
+            <th style="border: 1px solid black;">Temp</th>
+            <th style="border: 1px solid black;">Litros</th>
+            <th style="border: 1px solid black;">Lotes</th>
+            <!-- Agrega otras columnas según tus modelos -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for resultado in resultados_recp_pupa %}
+            <tr>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.fecha }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.horarios }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.temperatura }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.litros }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.lotes }}</td>
+                <!-- Agrega otras celdas según tus modelos -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Tabla de Resultados Producción -->
+<h2 style="font-family:Quicksand;">Tabla de Resultados Producción</h2>
+<table style="border-collapse: collapse; width: 100%; font-family:Quicksand; font-size:12px; position:center;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">Fecha</th>
+            <th style="border: 1px solid black;">Lotes</th>
+            <th style="border: 1px solid black;">Millones Procesados</th>
+            <th style="border: 1px solid black;">Cantidad Torres</th>
+            <!-- Agrega otras columnas según tus modelos -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for resultado in resultados_produccion %}
+            <tr>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.fecha }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.lotes }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.millones_procesados }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.cantidad_torres }}</td>
+                <!-- Agrega otras celdas según tus modelos -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table><!-- Estructura similar para el modelo de Producción -->
+
+<!-- Tabla de Resultados Liberación -->
+<h2 style="font-family:Quicksand;">Tabla de Resultados Liberación</h2>
+<table style="border-collapse: collapse; width: 100%; font-family:Quicksand; font-size:12px; position:center;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">Fecha Horarios</th>
+            <th style="border: 1px solid black;">Sector</th>
+            <th style="border: 1px solid black;">Temp_humedad_entrega_cajas</th>
+            <th style="border: 1px solid black;">Temp_humedad_ingreso_sector_liberación</th>
+            <th style="border: 1px solid black;">Millones Liberados </th>
+            <!-- Agrega otras columnas según tus modelos -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for resultado in resultados_liberacion %}
+            <tr>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.fecha_horarios}}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.sector }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.temp_humedad_entrega_cajas }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.temp_humedad_ingreso_sector_liberacion }}</td>
+                <td style="border: 1px solid black; text-align: center;">{{ resultado.millones_liberados }}</td>
+                <!-- Agrega otras celdas según tus modelos -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table><!-- Estructura similar para el modelo de Liberación -->
+
         </div>    
     </div>
 </div>

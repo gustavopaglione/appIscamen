@@ -95,36 +95,21 @@ def informes(request):
     return render(request, 'informes.html')
 
 
-
-
-
 from .forms import FiltroInformeForm
 
-def filtrar_informes(request):
-    if request.method == 'POST':
-        form = FiltroInformeForm(request.POST)
-        if form.is_valid():
-            fecha_inicio = form.cleaned_data['fecha_inicio']
-            fecha_fin = form.cleaned_data['fecha_fin']
-            categoria = form.cleaned_data['categoria']
+def informes(request):
+    # Obtén todos los registros de cada modelo
+    recp_pupa_resultados = RECP_PUPA.objects.all()
+    produccion_resultados = Produccion.objects.all()
+    liberacion_resultados = Liberacion.objects.all()
 
-            # Filtra los resultados según los parámetros
-            if categoria == 'RECP_PUPA':
-                resultados = RECP_PUPA.objects.filter(
-                    fecha__range=(fecha_inicio, fecha_fin),
-                )
-            elif categoria == 'Produccion':
-                resultados = Produccion.objects.filter(
-                    fecha__range=(fecha_inicio, fecha_fin),
-                )
-            elif categoria == 'Liberacion':
-                resultados = Liberacion.objects.filter(
-                    fecha_horarios__range=(fecha_inicio, fecha_fin),
-                )
-
-            return render(request, 'informe.html', {'resultados': resultados, 'form': form})
-    else:
-        form = FiltroInformeForm()
-
-    return render(request, 'informe.html', {'form': form})
-
+    # Renderiza la página con los resultados de cada modelo
+    return render(
+        request,
+        'informes.html',
+        {
+            'resultados_recp_pupa': recp_pupa_resultados,
+            'resultados_produccion': produccion_resultados,
+            'resultados_liberacion': liberacion_resultados,
+        }
+    )

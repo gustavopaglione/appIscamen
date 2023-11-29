@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static 
-from .views import login_view, recp_pupa_form, produccion_form, produccion_success, salir, liberacion_form, liberacion_success, recp_pupa_form, produccion, liberacion, informes, filtrar_informes, pupa_success
+from .views import login_view, recp_pupa_form, produccion_form, produccion_success, salir, liberacion_form, liberacion_success, recp_pupa_form, produccion, liberacion, informes, pupa_success
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -18,7 +18,7 @@ urlpatterns = [
     path('produccion/', produccion, name='produccion'),
     path('liberacion/', liberacion, name='liberacion'),
     path('informes/', informes, name='informes'),
-    path('informes/', filtrar_informes, name='filtrar_informes'),
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
